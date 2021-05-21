@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+<!--title block-->
+{% block title %}
+
+    Login
+
+{% endblock %}
+ 
+ 
+ 
+ <!--main body Start-->
+ {% block bodyblock%}
+            {% for message in messages %}
+            <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
+            </div>
+            {% endfor %}
+    
+    <div class="container mt-5 text-center">
+     
+        <form action="" method="POST" class="from-group m-auto col-md-6">
+            {% csrf_token %}
+            <h3 class="text-center">Login</h3><hr><br><br>
+            <input type="text" class="form-control" name="userame" id="" placeholder="Enter Your Userame:" required><br>
+            <input type="password" class="form-control" name="password" id="" placeholder="Enter Your Password:" required><br>
+            <small>Forgot Password <a href="{% url 'forgot_pasword' %}"> click here</a></small><br>
+            <input type="submit" value="Login"  class="btn btn-success text-center"> </input><br>
+            <small>You have no account<a href="{% url 'sign_up' %}"> Registation Now !</a></small><br>
+        </form>
+
+    </div>
+
+ {% endblock %}
+ <!--main body End-->

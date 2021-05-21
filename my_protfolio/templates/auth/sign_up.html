@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+<!--title block-->
+{% block title %}
+
+    sign_up
+{% endblock %}
+ 
+ 
+ 
+ <!--main body Start-->
+ {% block bodyblock%}
+ 
+    <div class="container mt-5 text-center">
+     
+        <form action="" method="POST" class="from-group m-auto col-md-6">
+            {% csrf_token %}
+            <h3 class="text-center">Create a Account</h3><hr><br><br>
+                {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{ message }}
+            </div>
+            {% endfor %}
+    
+            <input type="text"class="form-control" name="name" placeholder="Enter Your Name: "><br>
+            <input type="email" class="form-control" name="email" id="" placeholder="Your Email: " required><br>
+            <input type="password" class="form-control" name="password" id="" placeholder="Enter Password:" required><br>
+            <input type="password" class="form-control" name="confrom_password" id="" placeholder="Confrom Password:" required><br>
+            
+            <input type="submit" value="Registation"  class="btn btn-success text-center"> <br>
+            <small>Allready you have account<a href="{% url 'login' %}"> login Now !</a></small>
+        </form>
+
+    </div>
+
+ {% endblock %}
+ <!--main body End-->
